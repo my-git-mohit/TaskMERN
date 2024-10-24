@@ -5,7 +5,7 @@ const app = express();
 const port = 3300;
 const mongoose = require("mongoose");
 
-mongoose.connect(process.env.URL).then(()=> console.log("Mongo Connected!!"));
+mongoose.connect("mongodb://13.232.70.222:27017/mydatabase").then(()=> console.log("Mongo Connected!!"));
 app.use((req,res,next)=>{
   res.setHeader("Access-Control-Allow-Origin","*");
   res.setHeader("Access-Control-Allow-Methods","GET,POST");
