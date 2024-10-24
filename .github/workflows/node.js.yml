@@ -70,11 +70,11 @@ jobs:
 
     - name: Transfer files to VM
       run: |
-        scp -r -o StrictHostKeyChecking=no * ubuntu@${{ secrets.VM_IP }}:/home/ubuntu/apps
+        scp -r -o StrictHostKeyChecking=no * ubuntu@${{ secrets.SERVER_IP }}:/home/ubuntu/apps
 
     - name: Connect to VM and deploy
       run: |
-        ssh -tt -o StrictHostKeyChecking=no ubuntu@${{ secrets.VM_IP }} << 'EOF'
+        ssh -tt -o StrictHostKeyChecking=no ubuntu@${{ secrets.SERVER_IP }} << 'EOF'
           cd /home/ubuntu/apps
           npm install
           npm run build
